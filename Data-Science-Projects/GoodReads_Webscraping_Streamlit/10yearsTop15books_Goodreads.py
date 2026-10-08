@@ -1,4 +1,3 @@
-
 # ## Webscraping using requests and BeautifulSoup
 # Get the list of top 15 books every year for the last 10 years from Goodreads page
 
@@ -61,23 +60,15 @@ book_df_mean = book_df.copy()
 
 book_df_mean.groupby(pd.Grouper(key="Year")).mean(numeric_only=True)
 
-
+# FIXED: Added numeric_only=True to prevent the TypeError
 book_df_sorted = book_df.groupby(
-    ['Author'], as_index=False).mean().sort_values('Avg rating', ascending=False)
+    ['Author'], as_index=False).mean(numeric_only=True).sort_values('Avg rating', ascending=False)
 # here as_index is very important to use otherwise the column Author will be used as index and we don't want that here.
 
 ##################
 # Plots
 ##################
 st.markdown("## **Plots**")
-
-# paramter 
-
-def param(plot_type):
-    if plot_type == "Top Authors":
-        num = st.sidebar.slider('Number of Authors',
-                            min_value=5, max_value=20, value=10, step=5)
-    return num
 
 
 def plot_figure(plot_type):
@@ -109,7 +100,8 @@ def plot_figure(plot_type):
         sns.barplot(data=book_df_mean, x='Year', y="Shelvings")
         st.pyplot(fig)
     elif plot_type == "Top Authors":
-        num = param(plot_type)    
+        # FIXED: Moved slider logic inside the plot condition to prevent crashing elsewhere
+        num = st.sidebar.slider('Number of Authors', min_value=5, max_value=20, value=10, step=5)
        
         fig = plt.figure(figsize=(19, 12))
         plt.style.use('ggplot')
