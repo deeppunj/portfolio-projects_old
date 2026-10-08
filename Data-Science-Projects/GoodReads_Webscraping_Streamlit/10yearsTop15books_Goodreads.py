@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-
+import os
 ##################
 # Title 
 ##################
@@ -27,6 +27,14 @@ year = st.sidebar.selectbox("Which year from the range 2012-2021", np.arange(201
 plot_type = st.sidebar.radio("Plot Type", ("Average Rating", "Rating Count", "Shelvings", "Top Authors", "All in One"))
 
 # # get the data set:
+
+# Get the path of the folder where this script is running
+script_dir = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(script_dir, 'gr_booklist_df.csv')
+
+# Load the dataframe using the correct path
+book_df = pd.read_csv(csv_path)
+
 
 book_df = pd.read_csv('gr_booklist_df.csv')
 book_df_trim = book_df[book_df["Year"]==year]
