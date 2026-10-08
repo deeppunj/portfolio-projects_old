@@ -28,12 +28,7 @@ plot_type = st.sidebar.radio("Plot Type", ("Average Rating", "Rating Count", "Sh
 
 # # get the data set:
 
-# Get the path of the folder where this script is running
-script_dir = os.path.dirname(os.path.abspath(__file__))
-csv_path = os.path.join(script_dir, 'gr_booklist_df.csv')
-
 # Load the dataframe using the correct path
-book_df = pd.read_csv(csv_path)
 book_df = pd.read_csv('Data-Science-Projects/GoodReads_Webscraping_Streamlit/gr_booklist_df.csv')
 
 
