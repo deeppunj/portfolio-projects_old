@@ -59,7 +59,7 @@ book_df['Shelvings'] = book_df['Shelvings'].replace(
 
 book_df_mean = book_df.copy()
 
-book_df_mean.groupby(pd.Grouper(key="Year")).mean()
+book_df_mean.groupby(pd.Grouper(key="Year")).mean(numeric_only=True)
 
 
 book_df_sorted = book_df.groupby(
