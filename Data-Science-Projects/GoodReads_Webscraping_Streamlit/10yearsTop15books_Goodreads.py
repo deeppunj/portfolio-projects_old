@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import os
+
 ##################
 # Title 
 ##################
@@ -31,8 +31,6 @@ plot_type = st.sidebar.radio("Plot Type", ("Average Rating", "Rating Count", "Sh
 # Load the dataframe using the correct path
 book_df = pd.read_csv('Data-Science-Projects/GoodReads_Webscraping_Streamlit/gr_booklist_df.csv')
 
-
-book_df = pd.read_csv('gr_booklist_df.csv')
 book_df_trim = book_df[book_df["Year"]==year]
 
 st.write(book_df_trim.drop(columns="Review").reset_index(drop=True))
