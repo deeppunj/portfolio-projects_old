@@ -20,15 +20,12 @@ Welcome to this portfolio projects repository. This repository showcases a diver
 ## 📁 Repository Structure
 
 ### 📊 1. Data Science & Web Scraping
-* **Directory:** 
 * **Overview:** Features a web scraper for Goodreads book data and an interactive **Streamlit** dashboard with dynamic user sliders and customized data visualization logic.
 
 ### 🤖 2. Machine Learning Projects
-* **Directory:**
 * **Overview:** A collection of hands-on machine learning projects focusing on data cleaning, feature engineering, classification, regression, and model performance tuning.
 
 ### 📈 3. Tableau Visualizations
-* **Directory:**
 * **Overview:** Interactive visual dashboards and business intelligence analytics built using Tableau.
 
 ---
